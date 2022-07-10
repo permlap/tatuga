@@ -1,16 +1,27 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@tailwind components;
+@tailwind utilities;
+@import '@animxyz/core';
+@include xyz-all;
+@include xyz-core;
+@include xyz-utilities;
+
+*{
+  margin: 0px;
+
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+@font-face {
+  font-family: "MoreSugar";
+  src: url("/MoreSugar-Regular.otf");
+}
+@font-face {
+  font-family: "LessSugar";
+  src: url("/MoreSugar-Thin.otf");
 }
 
-* {
-  box-sizing: border-box;
+.MoreSugar{
+  font-family: "MoreSugar";
+}
+.LessSugar{
+  font-family: "LessSugar";
 }
