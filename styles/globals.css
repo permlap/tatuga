@@ -25,3 +25,7 @@
 .LessSugar{
   font-family: "LessSugar";
 }
+
+.showdowTop{
+  filter: drop-shadow(0px -0.5px 10px #00000070);
+}

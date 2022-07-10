@@ -10,7 +10,7 @@ function Navbar() {
     
     return (
     <section>
-        <Box sx={{ flexGrow: 1 }}>
+        <Box >
           <AppBar className='bg-white py-5'>
             <Toolbar>
             
