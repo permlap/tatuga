@@ -1,9 +1,13 @@
+import axios from 'axios'
 import React from 'react'
+function Index(props) {
 
-function Index() {
   return (
-    <div>Index</div>
+    <div >
+      
+    </div>
   )
 }
 
 export default Index
+

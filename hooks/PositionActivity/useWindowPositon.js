@@ -1,5 +1,5 @@
 import {  useState } from 'react';
-import useLayoutEffect from "./useIsomorphicLayoutEffect"
+import useLayoutEffect from "../useIsomorphicLayoutEffect"
 export default function useWindowPosition(id) {
   const [animation, setAnimation] = useState(false);
 
@@ -7,7 +7,7 @@ export default function useWindowPosition(id) {
     function updatePosition() {
       const offetSetHeight = window.document.getElementById(id).offsetHeight;
 
-      if (window.pageYOffset > offetSetHeight * 0.4) {
+      if (window.pageYOffset > offetSetHeight * 0.8) {
         setAnimation(true);
       }
       if (window.pageYOffset < offetSetHeight * 0.3) {
