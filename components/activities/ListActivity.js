@@ -5,10 +5,9 @@ function ListActivity(props) {
     const checked = useWindowPosition("header")
         const activityCards = props.characters.map((card)=>{
             return(
-            <ul xyz="fade-100% down duration-10">
+            <ul xyz="fade-100% down duration-10"  key={card.id}>
               <div className='square xyz-in'>
                 <ActivityCard
-                key={card.id}
                 id={card.id}
                 title={card.name}
                 image={card.image}

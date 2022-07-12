@@ -15,7 +15,7 @@ function ActivityCard(props) {
   }
   return (
     <div>
-      <Card className='w-96'>
+      <Card className='w-96' key={props.key}>
         <CardActionArea onClick={handleCardActivity}>
           <CardMedia
             component="img"
