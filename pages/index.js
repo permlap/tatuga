@@ -1,4 +1,4 @@
-import { Button } from "@mui/material"
+import { Button, IconButton } from "@mui/material"
 import React, {useEffect, useState} from "react"
 import useWindowPosition from "../hooks/useWindowPosition"
 import Image from "next/image"
@@ -18,17 +18,19 @@ export default function Home(props) {
   return ()=> clearInterval(intervalId)
   },[])
 
+
+
   return (
 
     <div>
    
        
       <div className="relative">
-          <div >
-            <svg className="mt-20 h-max w-max"  viewBox="0 0 1438 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <div>
+            <svg className="mt-20 h-max w-max "  viewBox="0 0 1438 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <pattern id="Image1" patternUnits="userSpaceOnUse" width="100%" height="100%">
-                <image  href={`/heroImage/${currentImage}.jpg`} x="0" y="-200" width="100%" height="100%"/>
+                <image href={`/heroImage/${currentImage}.jpg`} x="0" y="-200" width="100%" height="100%"/>
               </pattern>
             </defs>
                 <path d="M0 424V0H1438V218V424C1132.73 604.704 949.86 520.384 626 424C377.305 298.154 229.084 303.67 0 424Z" fill="url(#Image1)"/>
@@ -118,9 +120,11 @@ export default function Home(props) {
         </div>
         </div>
       </div>
+
       <main>
           <ListActivity characters={props.characters} checked={checked}/>
       </main>
+      
       <footer>
           <div className="w-full h-full flex flex-col text-center mt-72 items-center bg-white showdowTop  ">
             <div><Image width={400} height={400}  src="/FineDayCamp.png"/></div>

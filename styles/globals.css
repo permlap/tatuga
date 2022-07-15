@@ -40,3 +40,20 @@
     --xyz-translate-y: 10vh;
   
 }
+
+.englishLevel {
+  --xyz-translate-y: -350%;
+  --xyz-ease: cubic-bezier(0.5, -1.5, 0.5, 1.5);
+}
+
+.pictureZooom:hover{
+  transform: scale(1.5);
+}
+
+.pictureZooom2:hover{
+  transform: scale(1.2);
+}
+
+.addBulr{
+  filter: blur(2px);
+}

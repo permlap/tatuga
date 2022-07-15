@@ -1,52 +1,43 @@
 import React from 'react'
 import axios from "axios"
 function index(props) {
-const dataRemaining = props.headers["x-ratelimit-remaining"]
+
   return (
     <div>
         <div className='mt-36 w-2/4 ml-auto mr-auto text-center flex-col'>
-        <h1 className='mb-5'>{props.Nasa.title}</h1>
-        <img className='w-96' src={props.Nasa.url} alt={props.Nasa.title}/>
+        <h1 className='mb-5'>{props.data.name}</h1>
+        <img className='w-96' src={props.data.image} alt={props.data.name}/>
         <br/>
-        <span>{props.Nasa.explanation}</span>
-        <div className="underline">{props.Nasa.copyright}</div>
-        <span>{props.Nasa.date}</span>
-        <div>x-ratelimit-remaining {dataRemaining}</div>
+        <span>{props.data.species}  {props.data.status}</span>
+        <div className="underline">{props.data.created}</div>  
       </div>
     </div>
   )
 }
 
 export default index
+
+
 export const getStaticPaths = async () => {
+const res = await axios.get(`https://rickandmortyapi.com/api/character`)
+const id = res.data.results
 
+const paths = id.map((post) => ({
+  params: { cardActivityId: post.id.toString()},
+}))
 
-  return {
-    paths:[
-      {
-        params:{
-          cardActivityId: "1"
-        }
-      },
-      {
-        params:{
-          cardActivityId: "2"
-        }
-      }
-  ],
-    fallback:false
-  }
+  return {paths, fallback: false}
+   
 }
 
-export const getStaticProps = async (ctx) => {
-    const key_api = "w9wE23aMqnBif3fuaUzVq6i3cq3tLahBherobNYC"
-    const res = await axios.get(`https://api.nasa.gov/planetary/apod?api_key=${key_api}`)
-    const Nasa = res.data
-    const headers = res.headers
+
+export const getStaticProps = async (context) => {
+  const cardActivityId = await context.params.cardActivityId
+  const res = await axios.get(`https://rickandmortyapi.com/api/character/${cardActivityId}`);
+  const data = await res.data
     return {
       props:{
-        Nasa:Nasa,
-        headers:headers
+        data:data
       }
     }
   }

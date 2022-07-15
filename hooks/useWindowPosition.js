@@ -10,9 +10,9 @@ export default function useWindowPosition(id) {
       if (window.pageYOffset > offetSetHeight * 0.4) {
         setAnimation(true);
       }
-      if (window.pageYOffset < offetSetHeight * 0.3) {
-        setAnimation(false);
-      }
+      // if (window.pageYOffset < offetSetHeight * 0.1) {
+      //   setAnimation(false);
+      // }
     }
     window.addEventListener('scroll', updatePosition);
     updatePosition();
