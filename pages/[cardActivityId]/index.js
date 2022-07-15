@@ -6,7 +6,9 @@ function index(props) {
     <div>
         <div className='mt-36 w-2/4 ml-auto mr-auto text-center flex-col'>
         <h1 className='mb-5'>{props.data.name}</h1>
+        <picture>
         <img className='w-96' src={props.data.image} alt={props.data.name}/>
+        </picture>
         <br/>
         <span>{props.data.species}  {props.data.status}</span>
         <div className="underline">{props.data.created}</div>  

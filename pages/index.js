@@ -127,7 +127,7 @@ export default function Home(props) {
       
       <footer>
           <div className="w-full h-full flex flex-col text-center mt-72 items-center bg-white showdowTop  ">
-            <div><Image width={400} height={400}  src="/FineDayCamp.png"/></div>
+            <div><Image width={400} height={400} alt="logo" src="/FineDayCamp.png"/></div>
             <div><span className="LessSugar text-2xl">{"Let's enjoy and learn English with us Tatuga camp!"}</span></div>
             <div><span className="LessSugar text-2xl ">English language plays an essential role in our lives as it helps in communication. It is the main language for studying any subject all over the world. English is important for students as it broadens their minds, develops emotional skills, improve the quality of life by providing job opportunities.</span></div>
             <div>
@@ -156,7 +156,7 @@ export default function Home(props) {
                     </svg>
                   </li>
                   <li>
-                     <Image width={120} height={120} src="/LINE_logo.svg.png"/>
+                     <Image width={120} height={120} alt="logo Line" src="/LINE_logo.svg.png"/>
                   </li>
                 </ul>
             </div>

@@ -17,12 +17,14 @@ function index(props) {
         <div key={item.id} className="w-full h-full overflow-hidden float-left  ">
         <Button>
         <ImageListItem  >
+        <picture>
           <img className=' duration-150 hover:origin-center pictureZooom hover:block hover:z-50'
             src={`${item.urls.raw}`}
             srcSet={item.urls.regular}
             alt={item.description}
             loading="lazy"
           />
+        </picture>
         </ImageListItem>
         </Button>
         </div>

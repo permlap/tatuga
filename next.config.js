@@ -4,9 +4,4 @@ const nextConfig = {
   swcMinify: true,
 }
 
-module.exports = {
-  images: {
-    loader: 'custom',
-    path: 'https://example.com/myaccount/',
-  },
-}
+module.exports = nextConfig

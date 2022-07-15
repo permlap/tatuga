@@ -19,7 +19,7 @@ function Index(props) {
             <Link href="/English-camp/highschool">
               <li className='bg-[#2C7CD1] text-xl  LessSugar hover:bg-slate-300 ease-out duration-300  w-max h-max px-14 py-14 rounded-md shadow-md'>
                 <span >High school</span>
-                <img/>
+               
               </li>
             </Link>
           </Button>
@@ -27,7 +27,7 @@ function Index(props) {
               <Link href="/English-camp/middleschool">
               <li className='bg-[#97CC04] text-xl LessSugar hover:bg-slate-300 ease-out duration-300  w-max h-max px-14 py-14 rounded-md shadow-md'>
                 <span>Middle school</span>
-                <img/>
+               
               </li>
               </Link>
           </Button>
@@ -35,7 +35,7 @@ function Index(props) {
               <Link href="/English-camp/elementaryschool">
               <li className='bg-[#F55E00] text-xl  LessSugar hover:bg-slate-300 ease-out duration-300  w-max h-max px-14 py-14 rounded-md shadow-md'>
                 <span>Elementary school</span>
-                <img/>
+               
               </li>
               </Link>
           </Button>
@@ -43,7 +43,7 @@ function Index(props) {
               <Link href="/English-camp/preschool">
               <li className='bg-[#EDBA02] text-xl LessSugar  hover:bg-slate-300 ease-out duration-300  w-max h-max px-14 py-14 rounded-md shadow-md'>
                 <span>Preschool</span>
-                <img/>
+               
               </li>
               </Link>
           </Button>
