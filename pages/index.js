@@ -5,7 +5,7 @@ import Image from "next/image"
 import axios from "axios"
 import ListActivity from "../components/activities/ListActivity"
 
-export default function Home(props) {
+export default function Home() {
   const checked = useWindowPosition("header")
   const [troggleAnimation,SettroggleAnimation] = useState("in")
   const [currentImage,SetCurrentImage] = useState("h5")
@@ -122,12 +122,11 @@ export default function Home(props) {
       </div>
 
       <main>
-          <Box>
-          <ListActivity characters={props.characters} checked={checked}/>
-          <div>
-          <Pagination className="absolute right-[40%] mt-10" count={10}/>
-          </div>
+          <Box display={"flex"} justifyContent={"center"}  alignItems={"center"}>
+          <Pagination  count={10}/>
           </Box>
+          <ListActivity characters={.characters} checked={checked}/>
+         
       </main>
       
       <footer>
@@ -171,15 +170,3 @@ export default function Home(props) {
   )
 }
 
-
-export const getStaticProps = async () => {
-  const res = await axios.get("https://rickandmortyapi.com/api/character")
-  const characters =  res.data.results
-
-  return {
-    props:{
-      characters: characters,
-      
-    }
-  }
-}
