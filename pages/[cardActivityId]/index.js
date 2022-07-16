@@ -27,7 +27,7 @@ function index(props) {
 export default index
 
 
-export const \ = async () => {
+export const getStaticPaths = async () => {
 const res = await axios.get(`https://rickandmortyapi.com/api/character`)
 const id = res.data.results
 
@@ -51,6 +51,7 @@ const paths = id.map((post) => ({
 export const getStaticProps = async (context) => {
   const cardActivityId = await context.params.cardActivityId
   const res = await axios.get(`https://rickandmortyapi.com/api/character/${cardActivityId}`)
+
   const data = await res.data
     return {
       props:{
