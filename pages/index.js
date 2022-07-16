@@ -1,4 +1,4 @@
-import { Button, IconButton } from "@mui/material"
+import { Box, Button, IconButton, Pagination } from "@mui/material"
 import React, {useEffect, useState} from "react"
 import useWindowPosition from "../hooks/useWindowPosition"
 import Image from "next/image"
@@ -122,7 +122,12 @@ export default function Home(props) {
       </div>
 
       <main>
+          <Box>
           <ListActivity characters={props.characters} checked={checked}/>
+          <div>
+          <Pagination className="absolute right-[40%] mt-10" count={10}/>
+          </div>
+          </Box>
       </main>
       
       <footer>
