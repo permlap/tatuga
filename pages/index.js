@@ -1,30 +1,53 @@
-import { Box, Button, IconButton, Pagination } from "@mui/material"
+import { Box, Button, CircularProgress, IconButton, Pagination } from "@mui/material"
 import React, {useEffect, useState} from "react"
 import useWindowPosition from "../hooks/useWindowPosition"
 import Image from "next/image"
 import axios from "axios"
 import ListActivity from "../components/activities/ListActivity"
+import { useQuery } from "react-query";
+import { useRouter } from "next/router";
 
 export default function Home() {
+  const router = useRouter();
   const checked = useWindowPosition("header")
   const [troggleAnimation,SettroggleAnimation] = useState("in")
   const [currentImage,SetCurrentImage] = useState("h5")
+  const [page, setPage] = useState(1);
+
   useEffect(()=>{
     const images = ["h2","h3","h4","h5","h8","h9","h12","h13"]
- 
     const intervalId = setInterval(() => {
       SetCurrentImage(images[Math.floor(Math.random() * images.length)]);
   }, 5000)
   return ()=> clearInterval(intervalId)
   },[])
 
+  useEffect(() => {
+    if (router.query.page) {
+      setPage(parseInt(router.query.page));
+    }
+  }, [router.query.page]);
+
+  const {isLoading, data} = useQuery(
+    ["characters", page],
+    async () =>
+      await axios(`https://rickandmortyapi.com/api/character/?page=${page}`).then((result) => result
+      ),
+      {
+        keepPreviousData: true,
+      }
+  )
+  function handlePaginationChange(e, value) {
+    setPage(value);
+    router.push(`/?page=${value}`, undefined, { shallow: true });
+  }
 
 
   return (
-
     <div>
-   
-       
+      {isLoading && <div className="w-full flex h-screen bg-white fixed z-50 items-center justify-center ">
+        <CircularProgress size={100}/>
+      </div>}
       <div className="relative">
           <div>
             <svg className="mt-20 h-max w-max "  viewBox="0 0 1438 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -123,9 +146,17 @@ export default function Home() {
 
       <main>
           <Box display={"flex"} justifyContent={"center"}  alignItems={"center"}>
-          <Pagination  count={10}/>
+          <Pagination 
+          count={data?.data.info.pages}
+          variant='outlined'
+          color='primary'
+          className='pagination'
+          page={page}
+          onChange={handlePaginationChange}
+          />
+       
           </Box>
-          <ListActivity characters={.characters} checked={checked}/>
+          <ListActivity characters={data?.data.results} checked={checked}/>
          
       </main>
       
