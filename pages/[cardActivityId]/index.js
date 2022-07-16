@@ -27,7 +27,7 @@ function index(props) {
 export default index
 
 
-export const getStaticPaths = async () => {
+export const \ = async () => {
 const res = await axios.get(`https://rickandmortyapi.com/api/character`)
 const id = res.data.results
 
